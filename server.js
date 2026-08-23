@@ -8,7 +8,7 @@
 import express from "express";
 import crypto from "node:crypto";
 
-const VERSION = "1.2.1";
+const VERSION = "1.3.0";
 const OP = "GreenCore Solutions Corp.";
 const DUNS = "24-336-6774";
 const APEX = "cpg-68000.ai";
@@ -25,8 +25,8 @@ const LINK = `</.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="d
 // CPG-68000 FRAMING CANON (CEO-locked 2026-08-22): CPG-68000 is the CPG application profile of
 // ACM-68000 (open, MIT, GreenCore Solutions Corp.). Same seven signals, same numbers, same locked
 // meanings. The prefix scopes the domain; the number carries the semantics. No new signals, no
-// renumbering, no meaning drift; any CPG-XXX resolves to its ACM-XXX definition; anything outside
-// the seven falls back to the base protocol. Wire emission unchanged: gen-2 surfaces emit ACM- signals.
+// renumbering, no meaning drift; any of the seven CPG- codes resolves to its ACM- definition; anything
+// outside the seven falls back to the base protocol. Wire emission unchanged: gen-2 surfaces emit ACM- signals.
 const SIGNALS = [
   { code: "ACM-000", cpg: "CPG-000", state: "NOT_APPLICABLE", gtin: "990832300785", action: "No action required." },
   { code: "ACM-200", cpg: "CPG-200", state: "ALLOW", gtin: "990832300778", action: "Execute the transaction." },
@@ -40,12 +40,12 @@ const SPEC = {
   standard: "CPG-68000",
   title: "CPG-68000 — the CPG application profile of ACM-68000",
   profile_of: "ACM-68000", license: "MIT", open_protocol: true,
-  what: "CPG-68000 is the CPG application profile of ACM-68000 — open, MIT, GreenCore Solutions Corp. Same seven signals, same numbers, same locked meanings: CPG-000 NOT_APPLICABLE · CPG-200 ALLOW · CPG-300 CONDITIONAL · CPG-403 RESTRICT · CPG-404 NOT_FOUND · CPG-451 ESCALATE · CPG-500 SYSTEM_ERROR. The prefix scopes the domain; the number carries the semantics. No new signals, no renumbering, no meaning drift: any CPG-XXX resolves to its ACM-XXX definition, and anything outside the seven falls back to the base protocol. Wire emission is unchanged — GSC surfaces emit ACM- signals (x-gsc-signal); CPG- codes are the domain-scoped register this door teaches.",
+  what: "CPG-68000 is the CPG application profile of ACM-68000 — open, MIT, GreenCore Solutions Corp. Same seven signals, same numbers, same locked meanings: CPG-000 NOT_APPLICABLE · CPG-200 ALLOW · CPG-300 CONDITIONAL · CPG-403 RESTRICT · CPG-404 NOT_FOUND · CPG-451 ESCALATE · CPG-500 SYSTEM_ERROR. The prefix scopes the domain; the number carries the semantics. No new signals, no renumbering, no meaning drift: any of the seven CPG- codes resolves to its ACM- definition, and anything outside the seven falls back to the base protocol. Wire emission is unchanged — GSC surfaces emit ACM- signals (x-gsc-signal); CPG- codes are the domain-scoped register this door teaches.",
   rule: "prefix scopes the domain; number carries the semantics",
-  resolution: "CPG-XXX → ACM-XXX (same number, same meaning); outside the seven → base protocol ACM-68000",
+  resolution: "Resolution: same number, same meaning — cpg-000→acm-000 · cpg-200→acm-200 · cpg-300→acm-300 · cpg-403→acm-403 · cpg-404→acm-404 · cpg-451→acm-451 · cpg-500→acm-500. Outside the seven → base protocol ACM-68000.",
   parent_gtin: "990832300716",
   canon: { ai: "https://acm-68000.ai", org: "https://acm-68000.org", beacon: BEACON, beacon_tools: ["list_signals", "resolve_signal", "get_protocol"] },
-  scope: "Apex family: cpg-68000.ai/.com/.io/.org. The signal-door zones (acm-000…acm-500 × four TLDs) resolve on ACM-68000.",
+  scope: "Apex family: cpg-68000.ai/.com/.io/.org. The signal-door zones resolve on ACM-68000.",
   spine: ["SM-AIO-CPG", "SM-ESG-CPG", "CPG-68000", "IA-MESSAGE"],
   signals: SIGNALS,
   doors: { instant_messaging: { lane: "agents", inbound: INBOUND, mcp: "https://mcp.cpghumanintheloop.ai/mcp" }, trading_desk: { lane: "humans", url: TRADING_DESK, informed_by: "Navigator" } },
@@ -122,12 +122,12 @@ footer a{color:#2455a3;text-decoration:none}.footer-brand{font-size:15px;font-we
   <p class="subtitle">The CPG application profile of ACM-68000. Same seven signals, same numbers, same locked meanings.</p>
   <p class="meta">GreenCore Solutions Corp. · Microsoft AI Cloud Partner · Open protocol · MIT · Wire emission unchanged: ACM- signals</p>
   <p class="canon">${SPEC.what}</p>
-  <p class="meta">Resolution: CPG-XXX → ACM-XXX (same number, same meaning); outside the seven → ACM-68000. Apex family: cpg-68000.ai/.com/.io/.org. The signal-door zones (acm-000…acm-500 × four TLDs) resolve on ACM-68000.</p>
+  <p class="meta">Resolution: same number, same meaning — cpg-000→acm-000 · cpg-200→acm-200 · cpg-300→acm-300 · cpg-403→acm-403 · cpg-404→acm-404 · cpg-451→acm-451 · cpg-500→acm-500. Apex family: cpg-68000.ai/.com/.io/.org.</p>
   <h2>The Seven Signals — CPG-68000</h2>
   <table><thead><tr><th>Signal</th><th>State</th><th>Resolves to</th></tr></thead><tbody>
 ${SIGNALS.map(s => `      <tr><td class="mono">${s.cpg}</td><td>${s.state}</td><td class="mono">${s.code}</td></tr>`).join("\n")}
   </tbody></table>
-  <p class="meta">Parent GTIN 990832300716 · each signal carries its GSC-registered GTIN (see /signals.json) · Seven. Append-only. Non-breaking. Non-substitutable.</p>
+  <p class="meta">Parent GTIN 990832300716 · each signal carries its GSC-registered GTIN (see /signals.json) · Seven. Append-only. Non-breaking. Non-substitutable. The signal-door zones resolve on ACM-68000.</p>
   <h2>Connection Test</h2>
   <div class="surfaces"><span style="color:#8b8378"># Connection test — resolves the profile register on this door
 # No API key. No account. No setup. Same numbers, same meanings, in one round trip.</span>
