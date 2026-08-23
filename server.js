@@ -8,7 +8,7 @@
 import express from "express";
 import crypto from "node:crypto";
 
-const VERSION = "1.1.0";
+const VERSION = "1.2.0";
 const OP = "GreenCore Solutions Corp.";
 const DUNS = "24-336-6774";
 const APEX = "cpg-68000.ai";
@@ -88,17 +88,79 @@ app.use((req, res, next) => { const h = hostOf(req); if (REDIRECT.has(h)) { nine
 const send = (res, type, body) => { nineteen(res); res.type(type).send(body); };
 const json = (res, obj) => { nineteen(res); res.json(obj); };
 
-const html = () => `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CPG-68000 — the seven-signal procurement protocol for AI Agents | GreenCore Solutions Corp.</title><meta name="description" content="CPG-68000: the NextGen door for GSC's deterministic seven-signal procurement protocol (ACM-68000 canon). Seven signals, one meaning each, GS1-anchored, append-only."><link rel="canonical" href="https://${APEX}/">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>:root{--orange:#F38020;--ink:#141414;--grey:#6E6E6E;--hair:#ECE9E3;--panel:#F7F6F3}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;font-size:17px;line-height:1.65;padding-top:62px}.wrap{max-width:1080px;margin:0 auto;padding:0 24px}h1,h2{font-family:Archivo,sans-serif;line-height:1.12;letter-spacing:-.01em}a{color:var(--orange);text-decoration:none}.mono{font-family:'IBM Plex Mono',monospace}.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:500}section{padding:70px 0;border-top:1px solid var(--hair)}.hero{padding:140px 0 70px;border-top:0}.hero h1{font-size:clamp(38px,6vw,64px);font-weight:700;margin:14px 0 0}.hero .sub{margin:16px 0 0;font-size:21px;font-weight:600;color:var(--orange);max-width:40ch}.hero .mech{margin:24px 0 0;max-width:66ch}.ng-topbar{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair);z-index:100}.ng-bar{max-width:1080px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:14px}.ng-lockup{display:flex;align-items:center;gap:10px}.ng-lockup .mark{width:34px;height:34px;fill:#141414}.ng-wordmark{font-family:Archivo,sans-serif;font-weight:700;font-size:19px;color:#141414}.ng-tabs{display:flex;gap:22px;flex-wrap:wrap}.ng-tabs a{font-weight:500;font-size:14px;letter-spacing:.06em;color:var(--grey)}table{width:100%;border-collapse:collapse;margin-top:30px}td,th{padding:14px 12px;border-top:1px solid var(--hair);text-align:left;vertical-align:top;font-size:15px}th{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}td:first-child{font-family:'IBM Plex Mono',monospace;color:var(--orange);font-weight:500;white-space:nowrap}.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}.card{border:1px solid var(--hair);border-radius:12px;background:var(--panel);padding:26px 24px}.card h3{font-family:Archivo,sans-serif;font-size:19px;margin-bottom:10px}footer{border-top:1px solid var(--hair);padding:54px 0 62px;font-size:13px;color:var(--grey);line-height:1.8}@media(max-width:760px){.duo{grid-template-columns:1fr}.ng-tabs{gap:12px}.ng-tabs a{font-size:12px}}</style></head><body>
-<div class="ng-topbar"><div class="ng-bar"><a class="ng-lockup" href="/"><svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path fill-rule="evenodd" d="M50 5a45 45 0 1 0 0 90 45 45 0 0 0 0-90zm0 24a21 21 0 1 1 0 42 21 21 0 0 1 0-42z"/></svg><span class="ng-wordmark">CPG-68000</span></a><nav class="ng-tabs"><a href="https://gsc-em.com">HOME</a><a href="https://gsc-agency.ai">AGENCY</a><a href="https://brands.gsc-agency.ai">BRANDS</a><a href="https://gsc-foundry.ai">FOUNDRY</a><a href="https://gsc-global.ai">GLOBAL</a><a href="https://gsc-investor.ai">INVESTOR</a></nav></div></div>
-<header class="hero"><div class="wrap"><div class="eyebrow">CPG-68000 · THE CPG APPLICATION PROFILE OF ACM-68000 · OPEN · MIT</div><h1>One signal. One meaning.</h1><p class="sub">Same seven signals, same numbers, same locked meanings — the prefix scopes the domain; the number carries the semantics.</p><p class="mech">${SPEC.what}</p></div></header>
-<section><div class="wrap"><div class="eyebrow">The seven signals</div><table><tr><th>CPG profile</th><th>ACM base</th><th>State</th><th>GSC-registered GTIN</th><th>Buyer-side action</th></tr>${SIGNALS.map(s => `<tr><td>${s.cpg}</td><td class="mono">${s.code}</td><td>${s.state}</td><td class="mono">${s.gtin}</td><td>${s.action}</td></tr>`).join("")}</table><p style="margin-top:18px;font-size:14px;color:var(--grey)">Parent GTIN <span class="mono">990832300716</span> · GS1 Canada GEPIR · D-U-N-S ${DUNS}. Seven. Append-only. Non-breaking. Non-substitutable. Any CPG-XXX resolves to its ACM-XXX definition; anything outside the seven falls back to the base protocol. On the wire, GSC surfaces emit ACM- signals.</p></div></section>
-<section><div class="wrap"><div class="eyebrow">Where the canon resolves</div><div class="duo"><div class="card"><h3>ACM-68000 canon</h3><p><a href="https://acm-68000.ai" class="mono">acm-68000.ai</a> · <a href="https://acm-68000.org" class="mono">acm-68000.org</a> · live over MCP on <a href="${BEACON}" class="mono">mcp.cpgagentprotocols.ai</a> (<span class="mono">list_signals</span>, <span class="mono">resolve_signal</span>).</p></div><div class="card"><h3>Scope of this door</h3><p>${SPEC.scope}</p></div></div></div></section>
-<section><div class="wrap"><div class="eyebrow">ACM-451 — a human</div><div class="duo"><div class="card"><h3>Instant Messaging for agents</h3><p>Declared by <span class="mono">x-gsc-inbound</span> on every GSC surface: <span class="mono">${INBOUND}</span> → the transaction MCP. Typed, identified, ticketed, human-signed.</p></div><div class="card"><h3>GSC Trading Desk</h3><p>The humans' channel, informed by Navigator. <a href="${TRADING_DESK}">Reach the Trading Desk →</a></p></div></div></div></section>
-<section id="contact"><div class="wrap"><div class="eyebrow">Contact</div><h2 style="font-family:Archivo,sans-serif;font-size:32px;margin-top:12px">A human answers — that's rather the point.</h2><form action="https://formspree.io/f/xjybzzdz" method="POST" style="margin-top:28px;display:grid;gap:12px;max-width:540px"><input type="hidden" name="_next" value="https://cpg-68000.ai/"><div><label for="f-name" style="font-size:13px;font-weight:600;color:var(--grey)">Name</label><input id="f-name" type="text" name="name" required autocomplete="name" style="width:100%;padding:12px 14px;border:1px solid var(--hair);border-radius:8px;font:inherit;font-size:15px"></div><div><label for="f-email" style="font-size:13px;font-weight:600;color:var(--grey)">Work email</label><input id="f-email" type="email" name="email" required autocomplete="email" style="width:100%;padding:12px 14px;border:1px solid var(--hair);border-radius:8px;font:inherit;font-size:15px"></div><div><label for="f-msg" style="font-size:13px;font-weight:600;color:var(--grey)">Your question about the signals</label><textarea id="f-msg" name="message" rows="4" required style="width:100%;padding:12px 14px;border:1px solid var(--hair);border-radius:8px;font:inherit;font-size:15px"></textarea></div><button type="submit" style="justify-self:start;cursor:pointer;border:0;background:var(--orange);color:#fff;font:inherit;font-weight:600;font-size:15px;padding:13px 26px;border-radius:6px">Send to the GSC Trading Desk</button></form></div></section>
-<footer><div class="wrap">Broadcast: @SM_ECO_10060 on X<br>Hosting: Microsoft Azure · agents resident in 18 countries worldwide<br>Standards spine: <a href="https://sm-aio-cpg.org" class="mono">sm-aio-cpg.org</a> · <a href="https://sm-esg-cpg.org" class="mono">sm-esg-cpg.org</a> · <span class="mono">cpg-68000.ai</span> · <a href="https://instantagentmessage.ai" class="mono">instantagentmessage.ai</a> · machine: <a href="/llms.txt">llms.txt</a> · <a href="/signals.json">signals.json</a> · <a href="/protocol.json">protocol.json</a><br>This site does not use cookies for tracking, advertising, or analytics.<br>© 2026 GreenCore Solutions Corp. (GSC) · Protocol operator: GSC · D-U-N-S ${DUNS} · Microsoft AI Cloud Partner</div></footer>
-<script src="/webmcp.js" defer></script></body></html>`;
+const html = () => `<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CPG-68000 — CPG application profile of ACM-68000</title><meta name="description" content="${SPEC.what.replace(/"/g, "&quot;")}">
+<link rel="canonical" href="https://${APEX}/"><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#faf8f3;color:#1a1a1a;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.container{max-width:900px;margin:0 auto;padding:32px 24px 96px}
+.topbar{font-size:12px;color:#6b6b6b;letter-spacing:.04em;margin-bottom:14px}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;color:#6b6b6b;font-size:11px;font-weight:600;margin:0 0 10px}
+h1{font:700 28px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;margin:0 0 4px}
+h1 .host{display:block;font-size:14px;color:#c84a1e;font-weight:600;margin-top:6px}
+.badge{display:inline-block;font:700 11px/1 ui-monospace,monospace;letter-spacing:.08em;color:#f3eee0;background:#c84a1e;padding:5px 10px;border-radius:3px;margin:10px 0 4px}
+.subtitle{font-size:18px;color:#6b6b6b;font-style:italic;margin:8px 0 20px}
+h2{font-size:18px;font-weight:700;margin:34px 0 12px;padding-bottom:8px;border-bottom:2px solid #c84a1e}
+.meta{font-size:13px;color:#6b6b6b;margin:0 0 6px}
+.canon{font-size:14px;color:#1a1a1a;margin:0 0 10px;max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0 24px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid #d4cfc1}
+th{background:#f3eee0;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+td.mono{font-family:ui-monospace,monospace;color:#c84a1e;font-weight:600}
+.surfaces{font-family:ui-monospace,monospace;font-size:12px;background:#1a1a1a;color:#f3eee0;padding:16px 20px;border-radius:4px;margin:12px 0 24px;white-space:pre;overflow-x:auto;line-height:1.8}
+form{display:grid;gap:8px;max-width:460px;margin:12px 0 24px}label{font-size:12px;color:#6b6b6b}input,textarea{font:inherit;font-size:14px;padding:8px 10px;border:1px solid #d4cfc1;border-radius:3px;background:#fff;width:100%}button{font:700 12px/1 ui-monospace,monospace;letter-spacing:.06em;color:#f3eee0;background:#c84a1e;border:0;padding:9px 14px;border-radius:3px;cursor:pointer;justify-self:start}
+footer{margin-top:64px;padding-top:28px;border-top:1px solid #d4cfc1;font-size:12px;color:#6b6b6b;line-height:1.7}
+footer a{color:#2455a3;text-decoration:none}.footer-brand{font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:8px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:22px;margin:16px 0}
+.cols h4{font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;color:#1a1a1a}
+.cols a{display:block;margin-bottom:5px}</style></head><body>
+<div class="container">
+  <div class="topbar">Microsoft Azure · France Central · Paris</div>
+  <p class="eyebrow">CPG-68000 · CPG application profile of ACM-68000 · Open · MIT</p>
+  <h1>CPG-68000<span class="host">${APEX}</span></h1>
+  <div class="badge">STATE: RESOLVED · LIVE</div>
+  <p class="subtitle">The CPG application profile of ACM-68000. Same seven signals, same numbers, same locked meanings.</p>
+  <p class="meta">GreenCore Solutions Corp. · Microsoft AI Cloud Partner · Open protocol · MIT · Wire emission unchanged: ACM- signals</p>
+  <p class="canon">${SPEC.what}</p>
+  <p class="meta">Rule: ${SPEC.rule}. Resolution: ${SPEC.resolution}. ${SPEC.scope}</p>
+  <h2>The Seven Signals — CPG-68000</h2>
+  <table><thead><tr><th>Signal</th><th>State</th><th>Resolves to</th></tr></thead><tbody>
+${SIGNALS.map(s => `      <tr><td class="mono">${s.cpg}</td><td>${s.state}</td><td class="mono">${s.code}</td></tr>`).join("\n")}
+  </tbody></table>
+  <p class="meta">Parent GTIN 990832300716 · each signal carries its GSC-registered GTIN (see /signals.json) · Seven. Append-only. Non-breaking. Non-substitutable.</p>
+  <h2>Connection Test</h2>
+  <div class="surfaces"><span style="color:#8b8378"># Connection test — resolves the profile register on this door
+# No API key. No account. No setup. Same numbers, same meanings, in one round trip.</span>
+$ curl "https://${APEX}/signals.json"
+{
+  "protocol": "ACM-68000",
+  "door": "CPG-68000",
+  "signal_count": 7,
+  "signals": [ { "code": "ACM-451", "cpg": "CPG-451", "state": "ESCALATE", "gtin": "990832300730", ... } ],
+  "parent_gtin": "990832300716"
+}</div>
+  <h2>Machine Surfaces</h2>
+  <p class="meta">/protocol.json · /signals.json · /health.json · /llms.txt · /index.md · /auth.md<br>/.well-known/agent-card.json · /.well-known/mcp/server-card.json · /.well-known/ai-catalog.json · /.well-known/agent-skills/index.json · /.well-known/api-catalog</p>
+  <h2>Identity Beacons</h2>
+  <p class="meta">19 GSC headers (the Nineteen, gen-2 set) on every response, including x-gsc-x402: ready. Per-request x-gsc-timestamp and x-gsc-nonce regenerate as proof-of-liveness. Canon resolves live on ${BEACON} (list_signals, resolve_signal) and on acm-68000.ai / acm-68000.org.</p>
+  <h2>Contact</h2>
+  <p class="meta">A human answers — the GSC Trading Desk (humans' channel). Agents use Instant Messaging: ${INBOUND}.</p>
+  <form action="https://formspree.io/f/xjybzzdz" method="POST"><input type="hidden" name="_next" value="https://cpg-68000.ai/"><label for="f-name">Name</label><input id="f-name" type="text" name="name" required autocomplete="name"><label for="f-email">Work email</label><input id="f-email" type="email" name="email" required autocomplete="email"><label for="f-msg">Your question about the signals</label><textarea id="f-msg" name="message" rows="4" required></textarea><button type="submit">SEND TO THE GSC TRADING DESK</button></form>
+  <footer>
+  <p class="footer-brand">GreenCore Solutions Corp.</p>
+  <p>Microsoft AI Cloud Partner · D-U-N-S ${DUNS}</p>
+  <p style="margin-top:6px">Broadcast: <a href="https://x.com/SM_ECO_10060">@SM_ECO_10060 on X</a></p>
+  <div class="cols">
+    <div><h4>Estate</h4><a href="https://gsc-em.com/">gsc-em.com</a><a href="https://gsc-marketplace.ai/">gsc-marketplace.ai</a><a href="${TRADING_DESK}">gsc-navigator.ai</a><a href="https://dpuone.ai/">dpuone.ai — the ledger</a></div>
+    <div><h4>Follow</h4><a href="https://x.com/GSC_Rail_ai">@GSC_Rail_ai</a><a href="https://x.com/ACM68000">@ACM68000</a><a href="https://x.com/SM_AIO_CPG">@SM_AIO_CPG</a><a href="https://x.com/SM_ECO_10060">@SM_ECO_10060</a></div>
+  </div>
+  <p>Hosting: Microsoft Azure · agents resident in 18 countries worldwide</p>
+  <p style="margin-top:8px">Canonical standards: <a href="https://sm-aio-cpg.org/">sm-aio-cpg</a> · <a href="https://sm-esg-cpg.org/">sm-esg-cpg</a> · <a href="https://cpg-68000.ai/">cpg-68000</a> · <a href="https://instantagentmessage.ai/">instantagentmessage</a> · <a href="https://acm-68000.ai/">acm-68000</a></p>
+  <p style="margin-top:8px">This site does not use cookies for tracking, advertising, or analytics.</p>
+  <p style="margin-top:10px;color:#6b6b6b">© 2026 GreenCore Solutions Corp. (GSC) · Protocol operator: GSC</p>
+</footer>
+</div><script src="/webmcp.js" defer></script>
+</body></html>`;
 const md = () => `# CPG-68000 — the CPG application profile of ACM-68000\n\n> ${APEX} · open · MIT · GreenCore Solutions Corp.\n\n${SPEC.what}\n\n## Signals\n\n${SIGNALS.map(s => `- ${s.cpg} = ${s.code} ${s.state} · GTIN ${s.gtin} · ${s.action}`).join("\n")}\n\nParent GTIN 990832300716. Canon: https://acm-68000.ai · https://acm-68000.org · ${BEACON}\n\n${SPEC.scope}\n\nDoors: agents → ${INBOUND}; humans → ${TRADING_DESK}\n\nOperator: ${OP} · D-U-N-S ${DUNS}\n`;
 
 app.get("/", (req, res) => { const acc = req.headers.accept || ""; if (/text\/markdown/i.test(acc)) return send(res, "text/markdown; charset=utf-8", md()); if (/application\/json/i.test(acc.split(",")[0])) return json(res, SPEC); send(res, "text/html; charset=utf-8", html()); });
