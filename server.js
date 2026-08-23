@@ -8,7 +8,7 @@
 import express from "express";
 import crypto from "node:crypto";
 
-const VERSION = "1.4.1";
+const VERSION = "1.4.2";
 const OP = "GreenCore Solutions Corp.";
 const DUNS = "24-336-6774";
 const APEX = "cpg-68000.ai";
@@ -152,7 +152,7 @@ $ curl "https://${APEX}/signals.json"
   <p style="margin-top:6px">Broadcast: <a href="https://x.com/SM_ECO_10060">@SM_ECO_10060 on X</a></p>
   <div class="cols">
     <div><h4>Estate</h4><a href="https://gsc-em.com/">gsc-em.com</a><a href="https://gsc-marketplace.ai/">gsc-marketplace.ai</a><a href="${TRADING_DESK}">gsc-navigator.ai</a><a href="https://dpuone.ai/">dpuone.ai — the ledger</a></div>
-    <div><h4>Follow</h4><a href="https://x.com/GSC_Rail_ai">@GSC_Rail_ai</a><a href="https://x.com/ACM68000">@ACM68000</a><a href="https://x.com/SM_AIO_CPG">@SM_AIO_CPG</a><a href="https://x.com/SM_ECO_10060">@SM_ECO_10060</a></div>
+    <div><h4>Follow</h4><a href="https://x.com/GSC_Rail_ai">@GSC_Rail_ai</a><a href="https://x.com/ACM68000">@ACM68000</a><a href="https://x.com/SM_AIO_CPG">@SM_AIO_CPG</a><a href="https://x.com/SM_ESG_CPG">@SM_ESG_CPG</a><a href="https://x.com/SM_ECO_10060">@SM_ECO_10060</a></div>
   </div>
   <p>Hosting: Microsoft Azure · agents resident in 18 countries worldwide</p>
   <p style="margin-top:8px">Canonical standards: <a href="https://sm-aio-cpg.org/">sm-aio-cpg</a> · <a href="https://sm-esg-cpg.org/">sm-esg-cpg</a> · <a href="https://cpg-68000.ai/">cpg-68000</a> · <a href="https://instantagentmessage.ai/">instantagentmessage</a> · <a href="https://acm-68000.ai/">acm-68000</a></p>
