@@ -8,7 +8,7 @@
 import express from "express";
 import crypto from "node:crypto";
 
-const VERSION = "1.2.0";
+const VERSION = "1.2.1";
 const OP = "GreenCore Solutions Corp.";
 const DUNS = "24-336-6774";
 const APEX = "cpg-68000.ai";
@@ -45,7 +45,7 @@ const SPEC = {
   resolution: "CPG-XXX → ACM-XXX (same number, same meaning); outside the seven → base protocol ACM-68000",
   parent_gtin: "990832300716",
   canon: { ai: "https://acm-68000.ai", org: "https://acm-68000.org", beacon: BEACON, beacon_tools: ["list_signals", "resolve_signal", "get_protocol"] },
-  scope: "Apex family only (cpg-68000.ai/.com/.io/.org). The 28 signal-door zones (acm-000 … acm-500 × four TLDs) remain on the ACM-68000 canon until the ACM redo program ships — CEO-sequenced.",
+  scope: "Apex family: cpg-68000.ai/.com/.io/.org. The signal-door zones (acm-000…acm-500 × four TLDs) resolve on ACM-68000.",
   spine: ["SM-AIO-CPG", "SM-ESG-CPG", "CPG-68000", "IA-MESSAGE"],
   signals: SIGNALS,
   doors: { instant_messaging: { lane: "agents", inbound: INBOUND, mcp: "https://mcp.cpghumanintheloop.ai/mcp" }, trading_desk: { lane: "humans", url: TRADING_DESK, informed_by: "Navigator" } },
@@ -102,7 +102,7 @@ h1 .host{display:block;font-size:14px;color:#c84a1e;font-weight:600;margin-top:6
 .subtitle{font-size:18px;color:#6b6b6b;font-style:italic;margin:8px 0 20px}
 h2{font-size:18px;font-weight:700;margin:34px 0 12px;padding-bottom:8px;border-bottom:2px solid #c84a1e}
 .meta{font-size:13px;color:#6b6b6b;margin:0 0 6px}
-.canon{font-size:14px;color:#1a1a1a;margin:0 0 10px;max-width:78ch}
+.canon{font-size:14px;color:#1a1a1a;margin:0 0 10px}
 table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0 24px}
 th,td{text-align:left;padding:10px 14px;border-bottom:1px solid #d4cfc1}
 th{background:#f3eee0;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
@@ -122,7 +122,7 @@ footer a{color:#2455a3;text-decoration:none}.footer-brand{font-size:15px;font-we
   <p class="subtitle">The CPG application profile of ACM-68000. Same seven signals, same numbers, same locked meanings.</p>
   <p class="meta">GreenCore Solutions Corp. · Microsoft AI Cloud Partner · Open protocol · MIT · Wire emission unchanged: ACM- signals</p>
   <p class="canon">${SPEC.what}</p>
-  <p class="meta">Rule: ${SPEC.rule}. Resolution: ${SPEC.resolution}. ${SPEC.scope}</p>
+  <p class="meta">Resolution: CPG-XXX → ACM-XXX (same number, same meaning); outside the seven → ACM-68000. Apex family: cpg-68000.ai/.com/.io/.org. The signal-door zones (acm-000…acm-500 × four TLDs) resolve on ACM-68000.</p>
   <h2>The Seven Signals — CPG-68000</h2>
   <table><thead><tr><th>Signal</th><th>State</th><th>Resolves to</th></tr></thead><tbody>
 ${SIGNALS.map(s => `      <tr><td class="mono">${s.cpg}</td><td>${s.state}</td><td class="mono">${s.code}</td></tr>`).join("\n")}
