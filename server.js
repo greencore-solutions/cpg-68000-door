@@ -8,7 +8,7 @@
 import express from "express";
 import crypto from "node:crypto";
 
-const VERSION = "1.3.0";
+const VERSION = "1.4.0";
 const OP = "GreenCore Solutions Corp.";
 const DUNS = "24-336-6774";
 const APEX = "cpg-68000.ai";
@@ -121,13 +121,13 @@ footer a{color:#2455a3;text-decoration:none}.footer-brand{font-size:15px;font-we
   <div class="badge">STATE: RESOLVED · LIVE</div>
   <p class="subtitle">The CPG application profile of ACM-68000. Same seven signals, same numbers, same locked meanings.</p>
   <p class="meta">GreenCore Solutions Corp. · Microsoft AI Cloud Partner · Open protocol · MIT · Wire emission unchanged: ACM- signals</p>
-  <p class="canon">${SPEC.what}</p>
-  <p class="meta">Resolution: same number, same meaning — cpg-000→acm-000 · cpg-200→acm-200 · cpg-300→acm-300 · cpg-403→acm-403 · cpg-404→acm-404 · cpg-451→acm-451 · cpg-500→acm-500. Apex family: cpg-68000.ai/.com/.io/.org.</p>
+  <p class="canon">CPG-68000 is the CPG application profile of ACM-68000 — open, MIT, GreenCore Solutions Corp. The prefix scopes the domain; the number carries the semantics. No new signals, no renumbering, no meaning drift; anything outside the seven falls back to the base protocol. Wire emission is unchanged — GSC surfaces emit ACM- signals (x-gsc-signal); CPG- codes are the domain-scoped register this door teaches.</p>
   <h2>The Seven Signals — CPG-68000</h2>
   <table><thead><tr><th>Signal</th><th>State</th><th>Resolves to</th></tr></thead><tbody>
 ${SIGNALS.map(s => `      <tr><td class="mono">${s.cpg}</td><td>${s.state}</td><td class="mono">${s.code}</td></tr>`).join("\n")}
   </tbody></table>
   <p class="meta">Parent GTIN 990832300716 · each signal carries its GSC-registered GTIN (see /signals.json) · Seven. Append-only. Non-breaking. Non-substitutable. The signal-door zones resolve on ACM-68000.</p>
+  <p class="meta">Apex family: cpg-68000.ai · .com · .io · .org</p>
   <h2>Connection Test</h2>
   <div class="surfaces"><span style="color:#8b8378"># Connection test — resolves the profile register on this door
 # No API key. No account. No setup. Same numbers, same meanings, in one round trip.</span>

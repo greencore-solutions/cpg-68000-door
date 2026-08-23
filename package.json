@@ -1,6 +1,6 @@
 {
   "name": "cpg-68000-door",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "CPG-68000 — minimal spec door for the seven-signal procurement protocol (gen-2). GreenCore Solutions Corp.",
   "type": "module",
   "main": "server.js",
