@@ -8,7 +8,7 @@
 import express from "express";
 import crypto from "node:crypto";
 
-const VERSION = "1.4.0";
+const VERSION = "1.4.1";
 const OP = "GreenCore Solutions Corp.";
 const DUNS = "24-336-6774";
 const APEX = "cpg-68000.ai";
@@ -90,7 +90,7 @@ const json = (res, obj) => { nineteen(res); res.json(obj); };
 
 const html = () => `<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CPG-68000 — CPG application profile of ACM-68000</title><meta name="description" content="${SPEC.what.replace(/"/g, "&quot;")}">
+<title>CPG-68000 — CPG application profile of ACM-68000</title><meta name="description" content="CPG-68000 is the CPG application profile of ACM-68000 — open, MIT, GreenCore Solutions Corp. The prefix scopes the domain; the number carries the semantics. No new signals, no renumbering, no meaning drift; anything outside the seven falls back to the base protocol. Wire emission is unchanged — GSC surfaces emit ACM- signals (x-gsc-signal); CPG- codes are the domain-scoped register this door teaches.">
 <link rel="canonical" href="https://${APEX}/"><style>*{margin:0;padding:0;box-sizing:border-box}
 body{background:#faf8f3;color:#1a1a1a;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 .container{max-width:900px;margin:0 auto;padding:32px 24px 96px}
