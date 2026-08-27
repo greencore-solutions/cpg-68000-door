@@ -11,9 +11,9 @@
 
 ## What this door serves
 
-This is the spec door of the family: it states the standard, serves ACM-68000's seven signals as JSON, and carries the full discovery kit — born with THE NINETEEN on every response. Operated by GreenCore Solutions Corp. The individual signal doors live at [cpg-signal-doors](https://github.com/greencore-solutions/cpg-signal-doors) ([cpg-200.ai](https://cpg-200.ai/) and siblings); canon continues to resolve on [acm-68000.ai](https://acm-68000.ai/) / [acm-68000.org](https://acm-68000.org/) and the standards beacon [mcp.cpgagentprotocols.ai](https://mcp.cpgagentprotocols.ai/).
+This is the spec door of the family: it states the standard, serves ACM-68000's seven signals as JSON, and carries the full discovery kit — born with THE NINETEEN on every response. Operated by GreenCore Solutions Corp. The individual signal doors live at [cpg-signal-doors](https://github.com/greencore-solutions/cpg-signal-doors) ([cpg-200.ai](https://cpg-200.ai/) and siblings); canon resolves on the canonical apex [acm-68000.org](https://acm-68000.org/) (the .ai twin answers 308 there) and the standards beacon [mcp.cpgagentprotocols.ai](https://mcp.cpgagentprotocols.ai/).
 
-Apex family only — the 28 acm- signal-door zones (acm-000…acm-500 × four TLDs) stay with the ACM redo program, CEO-sequenced.
+Apex family only — the 28 acm- signal-door zones (acm-000…acm-500 × four TLDs) answer 308 to the canonical apex acm-68000.org.
 
 ## The family on GitHub
 

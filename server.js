@@ -115,7 +115,7 @@ footer a{color:#2455a3;text-decoration:none}.footer-brand{font-size:15px;font-we
 .cols h4{font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;color:#1a1a1a}
 .cols a{display:block;margin-bottom:5px}</style></head><body>
 <div class="container">
-  <div class="topbar">Microsoft Azure · France Central · Paris</div>
+  <div class="topbar">Microsoft Azure · agents resident in 18 countries worldwide</div>
   <p class="eyebrow">CPG-68000 · CPG application profile of ACM-68000 · Open · MIT</p>
   <h1>CPG-68000<span class="host">${APEX}</span></h1>
   <div class="badge">STATE: RESOLVED · LIVE</div>
